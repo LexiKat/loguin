@@ -8,92 +8,104 @@ static size_t printc = 0;
 static size_t warnc = 0;
 static size_t fatalc = 0;
 
-void loguin_printf(char *fmt, ...)
+int loguin_printf(char *fmt, ...)
 {
+    int count;
     va_list args;
     va_start(args, fmt);
-    fprintf(stderr, "\x1B[32m"
+    count = fprintf(stderr, "\x1B[32m"
                     "INFO"
                     "\x1B[0m"
                     "[%04lu]"
                     " ",
             printc++);
-    vfprintf(stderr, fmt, args);
+    count += vfprintf(stderr, fmt, args);
     va_end(args);
+    return count;
 }
 
-void loguin_println(char *fmt, ...)
+int loguin_println(char *fmt, ...)
 {
+    int count;
     va_list args;
     va_start(args, fmt);
-    fprintf(stderr, "\x1B[32m"
+    count = fprintf(stderr, "\x1B[32m"
                     "INFO"
                     "\x1B[0m"
                     "[%04lu]"
                     " ",
             printc++);
-    vfprintf(stderr, fmt, args);
-    fprintf(stderr, "\n");
+    count += vfprintf(stderr, fmt, args);
+    count += fprintf(stderr, "\n");
     va_end(args);
+    return count;
 }
 
-void loguin_warnf(char *fmt, ...)
+int loguin_warnf(char *fmt, ...)
 {
+    int count;
     va_list args;
     va_start(args, fmt);
-    fprintf(stderr, "\x1B[33m"
+    count = fprintf(stderr, "\x1B[33m"
                     "WARN"
                     "\x1B[0m"
                     "[%04lu]"
                     " ",
             warnc++);
-    vfprintf(stderr, fmt, args);
+    count += vfprintf(stderr, fmt, args);
     va_end(args);
+    return count;
 }
 
-void loguin_warnln(char *fmt, ...)
+int loguin_warnln(char *fmt, ...)
 {
+    int count;
     va_list args;
     va_start(args, fmt);
-    fprintf(stderr, "\x1B[33m"
+    count = fprintf(stderr, "\x1B[33m"
                     "WARN"
                     "\x1B[0m"
                     "[%04lu]"
                     " ",
             warnc++);
-    vfprintf(stderr, fmt, args);
-    fprintf(stderr, "\n");
+    count += vfprintf(stderr, fmt, args);
+    count += fprintf(stderr, "\n");
     va_end(args);
+    return count;
 }
 
-void loguin_fatalf(char *fmt, ...)
+int loguin_fatalf(char *fmt, ...)
 {
+    int count;
     va_list args;
     va_start(args, fmt);
-    fprintf(stderr, "\x1B[31m"
+    count = fprintf(stderr, "\x1B[31m"
                     "FATA"
                     "\x1B[0m"
                     "[%04lu]"
                     " ",
             fatalc++);
-    vfprintf(stderr, fmt, args);
+    count += vfprintf(stderr, fmt, args);
     va_end(args);
     exit(EXIT_FAILURE);
+    return count;
 }
 
-void loguin_fatalln(char *fmt, ...)
+int loguin_fatalln(char *fmt, ...)
 {
+    int count;
     va_list args;
     va_start(args, fmt);
-    fprintf(stderr, "\x1B[31m"
+    count = fprintf(stderr, "\x1B[31m"
                     "FATA"
                     "\x1B[0m"
                     "[%04lu]"
                     " ",
             fatalc++);
-    vfprintf(stderr, fmt, args);
-    fprintf(stderr, "\n");
+    count += vfprintf(stderr, fmt, args);
+    count += fprintf(stderr, "\n");
     va_end(args);
     exit(EXIT_FAILURE);
+    return count;
 }
 
