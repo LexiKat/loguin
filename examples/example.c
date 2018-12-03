@@ -3,16 +3,10 @@
 
 int main()
 {
-    loguin_printf("Hello %s i am %02d years", "Jorge", 9);
-    fprintf(stderr, " old\n");
-    loguin_println("Hello %s i am %f%% done with work!", "Bob Ross", 99.99);
-    
-    loguin_warnf("Hello %s i am %02d years", "Jorge", 9);
-    fprintf(stderr, " old\n");
-    loguin_warnln("Hello %s i am %f%% done with work!", "Bob Ross", 99.99);
-
-    // loguin_fatalf("Goodbye!");
-    loguin_fatalln("Goodbye!");
-
+    loguin_println("A waddle of penguins emerges from the ocean");
+    loguin_warnln("The waddle's number increased tremendously!");
+    loguin_printf("A giant penguin of size %lu appeared!\n", (size_t) 10 );
+    loguin_println("Tremendously sized walrus enters the ocean.");
+    loguin_fatalln("The ice breaks!");
     return 0;
 }
