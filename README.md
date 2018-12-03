@@ -3,6 +3,18 @@ Loguin is a simple logging library for C/C++, inspired by a package of a similar
 
 ![](examples/loguin.jpg)
 
+## Installation
+1. Clone this repo
+```sh
+git clone https://github.com/penguingovernor/loguin
+```
+2. Copy the h and c files to your corresponding src and include directories
+e.g. (Assumes that the present directory is the root of this repo)
+```sh
+cp src/loguin.c my_projects_src_folder/
+cp src/loguin.c my_projects_include_folder/
+```
+## Usage
 Loguin has three levels of logging:
 
 | Level 	| Related Functions                   	| Color  	|
