@@ -1,6 +1,12 @@
+#ifdef __cplusplus
+#include <cstdio>
+#include <cstdarg>
+#include <cstdlib>
+#else
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#endif
 
 #include "loguin.h"
 
@@ -8,7 +14,7 @@ static size_t printc = 0;
 static size_t warnc = 0;
 static size_t fatalc = 0;
 
-int loguin_printf(char *fmt, ...)
+int loguin_printf(const char *fmt, ...)
 {
     int count;
     va_list args;
@@ -24,7 +30,7 @@ int loguin_printf(char *fmt, ...)
     return count;
 }
 
-int loguin_println(char *fmt, ...)
+int loguin_println(const char *fmt, ...)
 {
     int count;
     va_list args;
@@ -41,7 +47,7 @@ int loguin_println(char *fmt, ...)
     return count;
 }
 
-int loguin_warnf(char *fmt, ...)
+int loguin_warnf(const char *fmt, ...)
 {
     int count;
     va_list args;
@@ -57,7 +63,7 @@ int loguin_warnf(char *fmt, ...)
     return count;
 }
 
-int loguin_warnln(char *fmt, ...)
+int loguin_warnln(const char *fmt, ...)
 {
     int count;
     va_list args;
@@ -74,7 +80,7 @@ int loguin_warnln(char *fmt, ...)
     return count;
 }
 
-int loguin_fatalf(char *fmt, ...)
+int loguin_fatalf(const char *fmt, ...)
 {
     int count;
     va_list args;
@@ -91,7 +97,7 @@ int loguin_fatalf(char *fmt, ...)
     return count;
 }
 
-int loguin_fatalln(char *fmt, ...)
+int loguin_fatalln(const char *fmt, ...)
 {
     int count;
     va_list args;
