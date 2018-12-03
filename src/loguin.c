@@ -71,7 +71,7 @@ void loguin_fatalf(char *fmt, ...)
     va_list args;
     va_start(args, fmt);
     fprintf(stderr, "\x1B[31m"
-                    "WARN"
+                    "FATA"
                     "\x1B[0m"
                     "[%04lu]"
                     " ",
@@ -86,7 +86,7 @@ void loguin_fatalln(char *fmt, ...)
     va_list args;
     va_start(args, fmt);
     fprintf(stderr, "\x1B[31m"
-                    "WARN"
+                    "FATA"
                     "\x1B[0m"
                     "[%04lu]"
                     " ",
